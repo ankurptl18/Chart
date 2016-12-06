@@ -32,9 +32,11 @@ public class RectangleInPdf {
 	/** The Constant DATE_PATTERN. */
 	public static final String DATE_PATTERN = "dd/MM/yyyy";
 
-	Font bold = new Font(Font.FontFamily.UNDEFINED, 8, Font.BOLD);
+	Font bold = new Font(Font.FontFamily.TIMES_ROMAN, 8, Font.BOLD);
 
-	Font italic = new Font(Font.FontFamily.UNDEFINED, 8, Font.ITALIC);
+	Font italic = new Font(Font.FontFamily.TIMES_ROMAN, 8, Font.ITALIC);
+	
+	Font normal = new Font(Font.FontFamily.TIMES_ROMAN, 8, Font.NORMAL);
 	
 	final int FONT_SIZE = 8;
 
@@ -186,12 +188,14 @@ public class RectangleInPdf {
 		inner.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 		inner.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
+		PdfPCell temp;
+		
 		for (Map.Entry<String, String> map : objectMap.entrySet()) {
-			PdfPCell temp = new PdfPCell(new Phrase(map.getKey() + ":", italic));
+			temp = new PdfPCell(new Phrase(map.getKey() + ":", italic));
 			temp.setBorder(0);
 			inner.addCell(temp);
 
-			temp = new PdfPCell(new Phrase(map.getValue(), italic));
+			temp = new PdfPCell(new Phrase(map.getValue(), normal));
 			temp.setBorder(0);
 			inner.addCell(temp);
 		}
