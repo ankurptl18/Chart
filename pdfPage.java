@@ -31,7 +31,7 @@ public class pdfPage extends PdfPageEventHelper {
 
 	/** The resulting PDF file. */
 	public static final String RESULT = "D:/Passion/Office Work/pdfChart/HelloWorld.pdf";
-
+	String test;
 	PdfTemplate total;
 
 	/**
